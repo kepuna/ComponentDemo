@@ -9,7 +9,7 @@ pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'Masonry'
 pod 'YYWebImage'
-pod 'ReactiveCocoa', '~> 4.0.4-alpha-4'
+pod 'ReactiveCocoa', '~> 2.5'
 
 end
 
