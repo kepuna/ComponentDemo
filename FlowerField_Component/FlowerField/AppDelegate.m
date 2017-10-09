@@ -8,12 +8,15 @@
 
 #import "AppDelegate.h"
 #import "FFTabBarController.h"
+#import "DBManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self configAppearance];
+    [[DBManager sharedManager] createTable];
+//    [[DBManager sharedManager] clearAll];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [self rootViewController];

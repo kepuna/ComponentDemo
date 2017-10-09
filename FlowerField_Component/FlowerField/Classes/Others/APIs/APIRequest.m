@@ -7,7 +7,8 @@
 //
 
 #import "APIRequest.h"
-#import "NetworkHelper.h"
+#import "DBManager.h"
+#import "FFHelper.h"
 
 @implementation APIRequest
 
@@ -16,26 +17,43 @@
     if ([self conformsToProtocol:@protocol(APIRequestProtocol)]) {
         
         self.request = (id<APIRequestProtocol>)self;
+        self.method = POST;
         [self apiRuquest];
     } else {
         // 不遵守这个protocol的就让他crash，防止派生类乱来。
-        NSAssert(NO, @"子类必须要实现APIManager这个protocol。");
+        NSAssert(NO, @"子类必须要实现APIManager这个protocol");
     }
     return self;
 }
 
 - (void)apiRuquest {
     
-    [[NetworkHelper sharedInstance] POST:[self.request apiRequestURL] parameters:[self.request apiRequestParams] finishBlock:^(id data, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.originData  = data;
-            self.requestError = error;
-            if ([self.delegate respondsToSelector:@selector(apiResponseSuccess:)]) {
-                [self.delegate apiResponseSuccess:self.request];
+    NSString *url = [self.request apiRequestURL];
+    NSDictionary *params = [self.request apiRequestParams];
+    NSString *cacheKey = [FFHelper connectBaseUrl:url params:params.mutableCopy];
+    
+    [[NetworkHelper sharedInstance] requestMethod:self.method url:url parameters:params finishBlock:^(id data, NSError *error) {
+        if (error) {
+            NSDictionary *cacheData = [[DBManager sharedManager] itemWithCacheKey:cacheKey];
+            if (!cacheData) {
+                self.responseError = error;
+                return;
             }
-        });
+            [self successCallBack:cacheData];
+            return;
+        }
+        [self successCallBack:data];
+        if (self.isCache) {
+             [[DBManager sharedManager] insertItem:data cacheKey:cacheKey];
+        }
     }];
+}
 
+- (void)successCallBack:(NSDictionary *)data {
+    self.responseData  = data;
+    if ([self.delegate respondsToSelector:@selector(apiResponseSuccess:)]) {
+        [self.delegate apiResponseSuccess:self.request];
+    }
 }
 
 @end

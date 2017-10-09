@@ -21,12 +21,16 @@
     return  params.copy;
 }
 
+- (BOOL)isCache {
+    return YES;
+}
+
 - (id)fetchDataWithReformer:(NSDictionary<FFReformProtocol> *)reformer {
     if (reformer == nil) {
         return nil;
     }
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (NSDictionary *dict in self.originData[@"result"]) {
+    for (NSDictionary *dict in self.responseData[@"result"]) {
         NSDictionary *dataDict = [reformer reformData:dict];
         [tempArray addObject:dataDict];
     }

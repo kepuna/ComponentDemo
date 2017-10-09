@@ -19,13 +19,20 @@
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"currentPageIndex"] = @0;
     params[@"pageSize"] = @(5);
-    params[@"cateId"] = @"";
     return params.copy;
+}
+
+- (NSString *)method {
+    return GET;
+}
+
+- (BOOL)isCache {
+    return YES;
 }
 
 - (id)fetchDataWithReformer:(NSDictionary<FFReformProtocol> *)reformer {
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (NSDictionary *dict in self.originData[@"result"]) {
+    for (NSDictionary *dict in self.responseData[@"result"]) {
         NSDictionary *dataDict = [reformer reformData:dict];
         [tempArray addObject:dataDict];
     }

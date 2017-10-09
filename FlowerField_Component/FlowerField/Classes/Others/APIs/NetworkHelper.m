@@ -9,6 +9,9 @@
 #import "NetworkHelper.h"
 #import <AFNetworking/AFNetworking.h>
 
+NSString * const POST = @"POST";
+NSString * const GET = @"GET";
+
 @interface NetworkHelper ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -27,6 +30,14 @@
     return _instance;
 }
 
+- (void)requestMethod:(NSString *)method url:(NSString *)url parameters:(id)parameters finishBlock:(void (^)(id, NSError *))finishBlock {
+    if ([method isEqualToString:GET]) {
+        [self GET:url parameters:parameters finishBlock:finishBlock];
+    } else {
+        [self POST:url parameters:parameters finishBlock:finishBlock];
+    }
+}
+
 - (void)GET:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id, NSError *))finishBlock {
     [self.manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         finishBlock(responseObject,nil);
@@ -37,7 +48,7 @@
 
 - (void)POST:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id, NSError *))finishBlock {
     [self.manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         finishBlock(responseObject,nil);
+        finishBlock(responseObject,nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         finishBlock(nil,error);
     }];

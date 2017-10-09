@@ -16,6 +16,8 @@
 		6C101F9A1F66898C003C0FB3 /* SpecialAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C101F981F66898C003C0FB3 /* SpecialAPIRequest.m */; };
 		6C32949A1F444B1A00A9FB2B /* FFNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3294951F444B1A00A9FB2B /* FFNavController.m */; };
 		6C32949C1F444B1A00A9FB2B /* FFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3294991F444B1A00A9FB2B /* FFTabBarController.m */; };
+		6C69A5D21F834AF30028E675 /* FFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C69A5D11F834AF30028E675 /* FFHelper.m */; };
+		6C7FBFB21F7CD6C500E2210D /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7FBFB11F7CD6C500E2210D /* DBManager.m */; };
 		6CAA48441F5972D100FCB48B /* FFSecialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CAA48351F5972D100FCB48B /* FFSecialDetailView.xib */; };
 		6CAA48451F5972D100FCB48B /* FFSpecialDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA48371F5972D100FCB48B /* FFSpecialDetailController.m */; };
 		6CAA48461F5972D100FCB48B /* FFSpecialDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAA48391F5972D100FCB48B /* FFSpecialDetailView.m */; };
@@ -64,6 +66,10 @@
 		6C3294951F444B1A00A9FB2B /* FFNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNavController.m; sourceTree = "<group>"; };
 		6C3294981F444B1A00A9FB2B /* FFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTabBarController.h; sourceTree = "<group>"; };
 		6C3294991F444B1A00A9FB2B /* FFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFTabBarController.m; sourceTree = "<group>"; };
+		6C69A5D01F834AF30028E675 /* FFHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFHelper.h; sourceTree = "<group>"; };
+		6C69A5D11F834AF30028E675 /* FFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFHelper.m; sourceTree = "<group>"; };
+		6C7FBFB01F7CD6C500E2210D /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		6C7FBFB11F7CD6C500E2210D /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		6CAA48351F5972D100FCB48B /* FFSecialDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFSecialDetailView.xib; sourceTree = "<group>"; };
 		6CAA48361F5972D100FCB48B /* FFSpecialDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFSpecialDetailController.h; sourceTree = "<group>"; };
 		6CAA48371F5972D100FCB48B /* FFSpecialDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFSpecialDetailController.m; sourceTree = "<group>"; };
@@ -377,6 +383,10 @@
 		6CE006681F6A2C4D00365640 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				6C7FBFB01F7CD6C500E2210D /* DBManager.h */,
+				6C7FBFB11F7CD6C500E2210D /* DBManager.m */,
+				6C69A5D01F834AF30028E675 /* FFHelper.h */,
+				6C69A5D11F834AF30028E675 /* FFHelper.m */,
 				6CE006691F6A2C4D00365640 /* HUDTools.h */,
 				6CE0066A1F6A2C4D00365640 /* HUDTools.m */,
 			);
@@ -495,6 +505,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlowerField/Pods-FlowerField-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
@@ -505,6 +516,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
@@ -574,6 +586,7 @@
 				6CE006711F6A2C4E00365640 /* UIView+FFFrame.m in Sources */,
 				6CE005F21F67877B00365640 /* FFAuthorListReformer.m in Sources */,
 				6CAA48481F5972D100FCB48B /* FFSpecialCellBottomView.m in Sources */,
+				6C69A5D21F834AF30028E675 /* FFHelper.m in Sources */,
 				6CE006701F6A2C4E00365640 /* UILabel+Extension.m in Sources */,
 				6CE005F01F67877B00365640 /* FFAuthorCell.m in Sources */,
 				1FCD56081D363ACC007F5C78 /* main.m in Sources */,
@@ -583,6 +596,7 @@
 				6CE0066D1F6A2C4E00365640 /* NSArray+Log.m in Sources */,
 				6CE005F11F67877B00365640 /* FFAuthorController.m in Sources */,
 				6CE0067A1F6A5A6F00365640 /* FFMainView.m in Sources */,
+				6C7FBFB21F7CD6C500E2210D /* DBManager.m in Sources */,
 				6CAA48491F5972D100FCB48B /* FFSpecialController.m in Sources */,
 				6C101F9A1F66898C003C0FB3 /* SpecialAPIRequest.m in Sources */,
 				6C32949A1F444B1A00A9FB2B /* FFNavController.m in Sources */,

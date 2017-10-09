@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXTERN NSString * const POST;
+FOUNDATION_EXTERN NSString * const GET;
+
 @interface NetworkHelper : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)GET:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id data, NSError *error))finishBlock;
-
-- (void)POST:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id data, NSError *error))finishBlock;
+- (void)requestMethod:(NSString *)method url:(NSString *)url parameters:(id)parameters finishBlock:(void (^)(id data, NSError *error))finishBlock;
 
 @end
