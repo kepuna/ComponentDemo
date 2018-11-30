@@ -29,8 +29,12 @@
     if (reformer == nil) {
         return nil;
     }
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"author_page" ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (NSDictionary *dict in self.responseData[@"result"]) {
+    for (NSDictionary *dict in jsonDict[@"result"]) {
         NSDictionary *dataDict = [reformer reformData:dict];
         [tempArray addObject:dataDict];
     }

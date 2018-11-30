@@ -47,6 +47,8 @@
 		6CE006761F6A2C4E00365640 /* HUDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE0066A1F6A2C4D00365640 /* HUDTools.m */; };
 		6CE0067A1F6A5A6F00365640 /* FFMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE006791F6A5A6F00365640 /* FFMainView.m */; };
 		6CE0067E1F6A640F00365640 /* UITableViewCell+FFAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE0067D1F6A640F00365640 /* UITableViewCell+FFAdd.m */; };
+		B115CF9021ABC3CB00677CF1 /* special_page.json in Resources */ = {isa = PBXBuildFile; fileRef = B115CF8F21ABC3CB00677CF1 /* special_page.json */; };
+		B115D00521B1651F00677CF1 /* author_page.json in Resources */ = {isa = PBXBuildFile; fileRef = B115D00421B1651E00677CF1 /* author_page.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +131,8 @@
 		6CE0067C1F6A640F00365640 /* UITableViewCell+FFAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FFAdd.h"; sourceTree = "<group>"; };
 		6CE0067D1F6A640F00365640 /* UITableViewCell+FFAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FFAdd.m"; sourceTree = "<group>"; };
 		9CA99BB2290CB1E2CD39EF9A /* Pods_FlowerField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowerField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B115CF8F21ABC3CB00677CF1 /* special_page.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = special_page.json; sourceTree = "<group>"; };
+		B115D00421B1651E00677CF1 /* author_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = author_page.json; sourceTree = "<group>"; };
 		F9E118FE69CC3F4EA51991FA /* Pods-FlowerField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerField.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowerField/Pods-FlowerField.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +304,8 @@
 		6CE0061D1F682E4300365640 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B115CF8F21ABC3CB00677CF1 /* special_page.json */,
+				B115D00421B1651E00677CF1 /* author_page.json */,
 				6CE0061E1F682E4300365640 /* font */,
 			);
 			path = Resources;
@@ -486,11 +492,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE006251F682E4300365640 /* FZXQJW_0.TTF in Resources */,
+				B115CF9021ABC3CB00677CF1 /* special_page.json in Resources */,
 				6CE006241F682E4300365640 /* CODE LIGHT.OTF in Resources */,
 				6CE006231F682E4300365640 /* CODE BOLD.OTF in Resources */,
 				1FCD56131D363ACC007F5C78 /* Assets.xcassets in Resources */,
 				6CAA48441F5972D100FCB48B /* FFSecialDetailView.xib in Resources */,
 				6CE006261F682E4300365640 /* 方正兰亭纤黑简体.TTF in Resources */,
+				B115D00521B1651F00677CF1 /* author_page.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

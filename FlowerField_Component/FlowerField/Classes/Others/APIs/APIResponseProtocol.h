@@ -13,5 +13,7 @@
 @optional;
 /// 响应成功后的处理
 - (void)apiResponseSuccess:(id<APIRequestProtocol>)request;
+/// 响应失败后的处理
+- (void)apiResponseFaild:(id<APIRequestProtocol>)request error:(NSError *)error;
 
 @end

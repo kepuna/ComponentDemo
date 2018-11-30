@@ -44,6 +44,12 @@
     [self.mainView configWithData:dataArray];
 }
 
+- (void)apiResponseFaild:(id<APIRequestProtocol>)request error:(NSError *)error {
+    [HUDTools zj_hideInView:self.view];
+    NSArray *dataArray = [request fetchDataWithReformer:[[FFAuthorListReformer alloc] init]];
+    [self.mainView configWithData:dataArray];
+}
+
 - (void)cellDidClick:(NSIndexPath *)indexPath params:(NSDictionary *)params {
     UIViewController *controller = [[FFAuthorDetailController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];

@@ -37,6 +37,9 @@
             NSDictionary *cacheData = [[DBManager sharedManager] itemWithCacheKey:cacheKey];
             if (!cacheData) {
                 self.responseError = error;
+                if ([self.delegate respondsToSelector:@selector(apiResponseFaild:error:)]) {
+                    [self.delegate apiResponseFaild:self.request error:error];
+                }
                 return;
             }
             [self successCallBack:cacheData];

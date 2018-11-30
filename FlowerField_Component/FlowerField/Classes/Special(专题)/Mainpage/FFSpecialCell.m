@@ -187,6 +187,8 @@
 - (UIImageView *)pictureView{
     if (_pictureView == nil) {
         _pictureView = [[UIImageView alloc]init];
+        _pictureView.contentMode = UIViewContentModeScaleAspectFill;
+        _pictureView.clipsToBounds = YES;
     }
     return _pictureView;
 }
